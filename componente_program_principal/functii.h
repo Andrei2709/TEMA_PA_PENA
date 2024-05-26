@@ -2,7 +2,7 @@
 #define TEMA_PA_PENA_FUNCTII_H
 
 int suma_subvector(int v[],int a, int b);
-void afisare_subvectori(int v[],int a, int b, int n);
+void afisare_subvectori(int v[],int a, int b, int c, int d, int n, int alg1, int alg2);
 int max_3nr(int a, int b, int c);
 int min_3nr(int a, int b, int c);
 

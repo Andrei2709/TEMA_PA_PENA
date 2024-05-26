@@ -12,7 +12,7 @@ int suma_subvector(int v[],int a, int b) // calculeaza suma elementelor unui sub
     return s;
 }
 
-void afisare_subvectori(int v[],int a, int b, int n) // afisarea celor 3 sectiuni
+void afisare_subvectori(int v[],int a, int b, int c, int d, int n, int alg1, int alg2) // afisarea celor 3 sectiuni, aferente celor 2 variante de algoritmi
 {
     FILE * output;
     output=fopen("date_iesire.txt","w");
@@ -22,23 +22,51 @@ void afisare_subvectori(int v[],int a, int b, int n) // afisarea celor 3 sectiun
         fprintf(output,"%d ",v[i]);
     fprintf(output,"\n\n");
 
-    fprintf(output,"Prima sectiune(%d - %d): ",0,a);
-    for(int i=0; i<=a; i++)
-        fprintf(output,"%d ",v[i]);
-    fprintf(output,"\n");
-    fprintf(output,"Totalul sectiunii I: %d \n\n",suma_subvector(v,0,a));
+    if(alg1==1)
+    {
+        fprintf(output,"***Prima metoda:***\n");
 
-    fprintf(output,"A doua sectiune(%d - %d): ",a+1,b);
-    for(int i=a+1; i<=b; i++)
-        fprintf(output,"%d ",v[i]);
-    fprintf(output,"\n");
-    fprintf(output,"Totalul sectiunii II: %d \n\n",suma_subvector(v,a+1,b));
+        fprintf(output,"Prima sectiune(%d - %d): ",0,a);
+        for(int i=0; i<=a; i++)
+            fprintf(output,"%d ",v[i]);
+        fprintf(output,"\n");
+        fprintf(output,"Totalul sectiunii I: %d \n\n",suma_subvector(v,0,a));
 
-    fprintf(output,"A treia sectiune(%d - %d): ",b+1,n-1);
-    for(int i=b+1; i<n; i++)
-        fprintf(output,"%d ",v[i]);
-    fprintf(output,"\n");
-    fprintf(output,"Totalul sectiunii III: %d",suma_subvector(v,b+1,n-1));
+        fprintf(output,"A doua sectiune(%d - %d): ",a+1,b);
+        for(int i=a+1; i<=b; i++)
+            fprintf(output,"%d ",v[i]);
+        fprintf(output,"\n");
+        fprintf(output,"Totalul sectiunii II: %d \n\n",suma_subvector(v,a+1,b));
+
+        fprintf(output,"A treia sectiune(%d - %d): ",b+1,n-1);
+        for(int i=b+1; i<n; i++)
+            fprintf(output,"%d ",v[i]);
+        fprintf(output,"\n");
+        fprintf(output,"Totalul sectiunii III: %d\n\n",suma_subvector(v,b+1,n-1));
+    }
+
+    if(alg2==1)
+    {
+        fprintf(output,"***A doua metoda - mai eficienta:***\n");
+
+        fprintf(output,"Prima sectiune(%d - %d): ",0,c);
+        for(int i=0; i<=c; i++)
+            fprintf(output,"%d ",v[i]);
+        fprintf(output,"\n");
+        fprintf(output,"Totalul sectiunii I: %d \n\n",suma_subvector(v,0,c));
+
+        fprintf(output,"A doua sectiune(%d - %d): ",c+1,d);
+        for(int i=c+1; i<=d; i++)
+            fprintf(output,"%d ",v[i]);
+        fprintf(output,"\n");
+        fprintf(output,"Totalul sectiunii II: %d \n\n",suma_subvector(v,c+1,d));
+
+        fprintf(output,"A treia sectiune(%d - %d): ",d+1,n-1);
+        for(int i=d+1; i<n; i++)
+            fprintf(output,"%d ",v[i]);
+        fprintf(output,"\n");
+        fprintf(output,"Totalul sectiunii III: %d\n\n",suma_subvector(v,d+1,n-1));
+    }
 
     fclose(output);
 }
